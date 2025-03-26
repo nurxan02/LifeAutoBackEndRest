@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import User
+from .models import Contact
 
 class UserSerializer(serializers.ModelSerializer):
     phone_number = serializers.SerializerMethodField()
@@ -81,3 +82,8 @@ class UserSerializer(serializers.ModelSerializer):
         })
         
         return internal_value
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = ["name", "email", "tel", "message", "checkmark"]

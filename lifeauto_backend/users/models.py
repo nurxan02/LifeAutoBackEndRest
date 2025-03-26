@@ -31,3 +31,13 @@ class User(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.email})"
+
+class Contact(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    tel = models.CharField(max_length=20)
+    message = models.TextField()
+    checkmark = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.name} ({self.email})"
