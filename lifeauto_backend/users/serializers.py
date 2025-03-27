@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import User
-from .models import Contact
+from .models import User, Contact, Blog
+
 
 class UserSerializer(serializers.ModelSerializer):
     phone_number = serializers.SerializerMethodField()
@@ -87,3 +87,9 @@ class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
         fields = ["name", "email", "tel", "message", "checkmark"]
+
+
+class BlogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blog
+        fields = '__all__'
